@@ -105,6 +105,7 @@ const Gallery = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className={styles.phoneFrame}>
+            <div className={styles.liquidGlassOverlay} />
             <video
               ref={videoRef}
               className={styles.phoneVideo}
@@ -114,13 +115,9 @@ const Gallery = () => {
               playsInline
               poster={`${baseUrl}assets/screenshots/iphone-home.png`}
             >
-              <source src={`${baseUrl}assets/videos/iphone.mov`} type="video/quicktime" />
-              <source src={`${baseUrl}assets/videos/iphone.mp4`} type="video/mp4" />
+              <source src={`${baseUrl}assets/videos/Iphone.mov`} type="video/quicktime" />
+              <source src={`${baseUrl}assets/videos/Iphone.mp4`} type="video/mp4" />
             </video>
-          </div>
-          <div className={styles.videoLabel}>
-            <span className={styles.liveIndicator} />
-            Live Demo
           </div>
         </motion.div>
 
