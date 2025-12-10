@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from '../styles/Gallery.module.css'
@@ -58,6 +58,13 @@ const screenshots = [
 
 const Gallery = () => {
   const carouselRef = useRef(null)
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5
+    }
+  }, [])
 
   const scroll = (direction) => {
     if (carouselRef.current) {
@@ -87,64 +94,95 @@ const Gallery = () => {
         </motion.div>
       </div>
 
-      {/* Full-width Carousel */}
-      <motion.div
-        className={styles.carouselContainer}
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        {/* Navigation Buttons */}
-        <button 
-          className={`${styles.navBtn} ${styles.navBtnLeft}`} 
-          onClick={() => scroll('left')}
-          aria-label="Previous"
+      {/* Main Layout: Video + Carousel */}
+      <div className={styles.mainLayout}>
+        {/* Left: iPhone Video */}
+        <motion.div
+          className={styles.videoSection}
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <ChevronLeft size={24} />
-        </button>
-
-        <button 
-          className={`${styles.navBtn} ${styles.navBtnRight}`} 
-          onClick={() => scroll('right')}
-          aria-label="Next"
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Carousel Track */}
-        <div className={styles.carousel} ref={carouselRef}>
-          {screenshots.map((screenshot, index) => (
-            <motion.div
-              key={screenshot.id + index}
-              className={`${styles.card} ${screenshot.device === 'iPad' ? styles.cardWide : ''}`}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ y: -10, transition: { duration: 0.2 } }}
+          <div className={styles.phoneFrame}>
+            <video
+              ref={videoRef}
+              className={styles.phoneVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster={`${baseUrl}assets/screenshots/iphone-home.png`}
             >
-              <div className={styles.imageContainer}>
-                <img
-                  src={screenshot.src}
-                  alt={screenshot.title}
-                  className={styles.image}
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.cardInfo}>
-                <span className={styles.deviceBadge}>{screenshot.device}</span>
-                <span className={styles.cardTitle}>{screenshot.title}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+              <source src={`${baseUrl}assets/videos/iphone.mov`} type="video/quicktime" />
+              <source src={`${baseUrl}assets/videos/iphone.mp4`} type="video/mp4" />
+            </video>
+          </div>
+          <div className={styles.videoLabel}>
+            <span className={styles.liveIndicator} />
+            Live Demo
+          </div>
+        </motion.div>
 
-      {/* Scroll hint */}
-      <div className={styles.scrollHint}>
-        <span>Scroll to explore</span>
-        <div className={styles.scrollLine} />
+        {/* Right: Carousel */}
+        <motion.div
+          className={styles.carouselContainer}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {/* Navigation Buttons */}
+          <button 
+            className={`${styles.navBtn} ${styles.navBtnLeft}`} 
+            onClick={() => scroll('left')}
+            aria-label="Previous"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <button 
+            className={`${styles.navBtn} ${styles.navBtnRight}`} 
+            onClick={() => scroll('right')}
+            aria-label="Next"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Carousel Track */}
+          <div className={styles.carousel} ref={carouselRef}>
+            {screenshots.map((screenshot, index) => (
+              <motion.div
+                key={screenshot.id + index}
+                className={`${styles.card} ${screenshot.device === 'iPad' ? styles.cardWide : ''}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ y: -10, transition: { duration: 0.2 } }}
+              >
+                <div className={styles.imageContainer}>
+                  <img
+                    src={screenshot.src}
+                    alt={screenshot.title}
+                    className={styles.image}
+                    loading="lazy"
+                  />
+                </div>
+                <div className={styles.cardInfo}>
+                  <span className={styles.deviceBadge}>{screenshot.device}</span>
+                  <span className={styles.cardTitle}>{screenshot.title}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Scroll hint */}
+          <div className={styles.scrollHint}>
+            <span>Scroll to explore</span>
+            <div className={styles.scrollLine} />
+          </div>
+        </motion.div>
       </div>
     </section>
   )

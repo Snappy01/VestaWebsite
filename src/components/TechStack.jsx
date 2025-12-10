@@ -3,11 +3,8 @@ import styles from '../styles/TechStack.module.css'
 
 const technologies = [
   { name: 'SwiftUI', description: 'Native iOS UI', color: '#f05138' },
-  { name: 'Combine', description: 'Reactive Framework', color: '#5856d6' },
   { name: 'WebSocket', description: 'Real-time Comm', color: '#00c7b7' },
   { name: 'OpenAI', description: 'GPT-4o Voice AI', color: '#10a37f' },
-  { name: 'Tauri', description: 'Desktop App', color: '#ffc131' },
-  { name: 'React', description: 'Web Interface', color: '#61dafb' },
   { name: 'Crestron', description: 'Home Automation', color: '#e31837' },
   { name: 'JSON', description: 'Configuration', color: '#cbcb41' }
 ]
