@@ -1,47 +1,11 @@
-import { motion } from 'framer-motion'
-import { Github, Mail, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import styles from '../styles/Footer.module.css'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer id="contact" className={styles.footer}>
-      {/* CTA Section */}
-      <div className={styles.cta}>
-        <div className="container">
-          <motion.div
-            className={styles.ctaContent}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className={styles.ctaTitle}>
-              Ready to Transform Your <span className="gradient-text">Smart Home</span>?
-            </h2>
-            <p className={styles.ctaDescription}>
-              Get in touch with CSP-Partners to discuss your Crestron integration project.
-            </p>
-            <div className={styles.ctaButtons}>
-              <a href="mailto:contact@csp-partners.com" className="btn btn-primary">
-                <Mail size={18} />
-                Contact Us
-              </a>
-              <a 
-                href="https://github.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="btn btn-secondary"
-              >
-                <Github size={18} />
-                View on GitHub
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-
+    <footer className={styles.footer}>
       {/* Bottom Bar */}
       <div className={styles.bottom}>
         <div className={`container ${styles.bottomContainer}`}>

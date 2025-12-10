@@ -51,17 +51,6 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <motion.a
-          href="#contact"
-          className={`btn btn-primary ${styles.cta}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-        >
-          Contact
-        </motion.a>
-
         {/* Mobile Menu Button */}
         <button 
           className={styles.mobileMenuBtn}
