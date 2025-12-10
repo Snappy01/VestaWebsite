@@ -39,6 +39,23 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 242, 255, 0.1);
 }
 
+/* iPad cards are wider (landscape format) */
+.cardWide {
+  width: 480px;
+}
+
+@media (max-width: 768px) {
+  .cardWide {
+    width: 360px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cardWide {
+    width: 560px;
+  }
+}
+
 .imageContainer {
   position: relative;
   padding: 1rem 1rem 0;

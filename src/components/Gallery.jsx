@@ -115,7 +115,7 @@ const Gallery = () => {
           {screenshots.map((screenshot, index) => (
             <motion.div
               key={screenshot.id + index}
-              className={styles.card}
+              className={`${styles.card} ${screenshot.device === 'iPad' ? styles.cardWide : ''}`}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
