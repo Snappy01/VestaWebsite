@@ -90,10 +90,10 @@ const Hero = () => {
               loop
               muted
               playsInline
-              poster="/assets/screenshots/ipad-lights.png"
+              poster={`${import.meta.env.BASE_URL}assets/screenshots/ipad-lights.png`}
             >
-              <source src="/assets/videos/demo.mov" type="video/quicktime" />
-              <source src="/assets/videos/demo.mp4" type="video/mp4" />
+              <source src={`${import.meta.env.BASE_URL}assets/videos/demo.mov`} type="video/quicktime" />
+              <source src={`${import.meta.env.BASE_URL}assets/videos/demo.mp4`} type="video/mp4" />
             </video>
           </div>
 

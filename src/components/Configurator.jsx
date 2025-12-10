@@ -35,14 +35,14 @@ const Configurator = () => {
           >
             <div className={styles.screenshotStack}>
               <motion.img
-                src="/assets/screenshots/configurator-project.png"
+                src={`${import.meta.env.BASE_URL}assets/screenshots/configurator-project.png`}
                 alt="VestaConfigurator Project View"
                 className={styles.screenshotBack}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               />
               <motion.img
-                src="/assets/screenshots/configurator-home.png"
+                src={`${import.meta.env.BASE_URL}assets/screenshots/configurator-home.png`}
                 alt="VestaConfigurator Home"
                 className={styles.screenshotFront}
                 whileHover={{ scale: 1.02 }}

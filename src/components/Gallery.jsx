@@ -3,54 +3,56 @@ import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import styles from '../styles/Gallery.module.css'
 
+const baseUrl = import.meta.env.BASE_URL
+
 const screenshots = [
   {
     id: 'iphone-home',
     title: 'Home Dashboard',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-home.png'
+    src: `${baseUrl}assets/screenshots/iphone-home.png`
   },
   {
     id: 'ipad-lights',
     title: 'Lighting Control',
     device: 'iPad',
-    src: '/assets/screenshots/ipad-lights.png'
+    src: `${baseUrl}assets/screenshots/ipad-lights.png`
   },
   {
     id: 'iphone-hvac',
     title: 'Climate Control',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-hvac.png'
+    src: `${baseUrl}assets/screenshots/iphone-hvac.png`
   },
   {
     id: 'iphone-video',
     title: 'Media Control',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-video.png'
+    src: `${baseUrl}assets/screenshots/iphone-video.png`
   },
   {
     id: 'iphone-lights',
     title: 'Light Presets',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-lights.png'
+    src: `${baseUrl}assets/screenshots/iphone-lights.png`
   },
   {
     id: 'iphone-blinds',
     title: 'Blinds Control',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-blinds.png'
+    src: `${baseUrl}assets/screenshots/iphone-blinds.png`
   },
   {
     id: 'iphone-backgrounds',
     title: 'Custom Themes',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-backgrounds.png'
+    src: `${baseUrl}assets/screenshots/iphone-backgrounds.png`
   },
   {
     id: 'iphone-settings',
     title: 'Settings',
     device: 'iPhone',
-    src: '/assets/screenshots/iphone-settings.png'
+    src: `${baseUrl}assets/screenshots/iphone-settings.png`
   }
 ]
 
