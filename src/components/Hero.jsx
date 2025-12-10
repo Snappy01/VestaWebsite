@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Play, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import styles from '../styles/Hero.module.css'
 
 const Hero = () => {
@@ -56,18 +56,14 @@ const Hero = () => {
             A native SwiftUI app that connects seamlessly to Crestron systems.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <motion.div
             className={styles.actions}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <a href="#gallery" className="btn btn-primary">
-              <Play size={18} />
-              Watch Demo
-            </a>
-            <a href="#features" className="btn btn-secondary">
+            <a href="#features" className="btn btn-primary">
               Explore Features
               <ArrowRight size={18} />
             </a>
@@ -130,17 +126,6 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className={styles.scrollIndicator}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-      >
-        <div className={styles.mouse}>
-          <div className={styles.wheel} />
-        </div>
-      </motion.div>
     </section>
   )
 }
